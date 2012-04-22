@@ -1,0 +1,65 @@
+<head>
+  <title>bookmark</title>
+  <script type="text/javascript" src="/md5.js"></script>
+</head>
+
+<body>
+  {{> main}}
+</body>
+
+<template name="main">
+  <div class="main">
+    <h1>Social Bookmark</h1>
+
+    {{#if user}}
+      <p class="login">login as <span class="user" id="user">{{user}}</span></p>
+      {{> entry}}
+      {{> bookmarks}}
+    {{else}}
+      {{> login}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="login">
+  <div class="login">
+    <input type="text" name="user" placeholder="User Name" id="form-user" />
+    <button>login</button>
+  </div>
+</template>
+
+<template name="entry">
+  <div class="entry" id="add-bookmark">
+    <input type="text" name="url" type="url" placeholder="http://" id="form-url" />
+    <input type="text" name="title" placeholder="page title" id="form-title" />
+    <input type="text" name="quote" placeholder="quoted sentence" id="form-quote" />
+    <input type="text" name="comment" placeholder="comment" id="form-comment" />
+    <button>add bookmark</button>
+  </div>
+</template>
+
+<template name="bookmarks">
+  <div class="bookmarks" id="bookmarks">
+    {{#if user_filter}}
+    <p>&laquo; <span class="navigate">Back to public timeline</span></p>
+    {{/if}}
+
+    <dl>
+      {{#each bookmarks}}
+        {{> bookmark}}
+      {{/each}}
+    </dl>
+  </div>
+</template>
+
+<template name="bookmark">
+  <dt><span class="user">{{user}}</span></dt>
+  {{#if comment}}
+  <dd>{{comment}}</dd>
+  {{/if}}
+  <dd><a href="{{url}}">{{#if title}}{{title}}{{else}}{{url}}{{/if}}</a></dd>
+  <dd class="domain"><a href="{{url}}">{{host url}}</a></dd>
+  {{#if quote}}
+  <dd><blockquote>{{quote}}</blockquote></dd>
+  {{/if}}
+</template>

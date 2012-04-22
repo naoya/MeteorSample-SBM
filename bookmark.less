@@ -1,0 +1,97 @@
+// less
+@bgcolor: #edebe8;
+@font-color: #333;
+@subfont-color: #707065;
+@border-color: #cdcdcc;
+@anchor-color: #456695;
+
+@font-family: Corbel, 'Helvetica Neue', Arial, sans-serif;
+@font-family-quote: "Constantia", Georgia, 'Hoefler Text', 'Times New Roman', serif;
+@h1-font-size: 1.7em;
+@base-font-size: 1.2em;
+
+@body-width: 940px;
+@body-min-width: 300px;
+
+.rounded-corners (@radius: 5px) {
+  border-radius: @radius;
+  -webkit-border-radius: @radius;
+  -moz-border-radius: @radius;
+}
+
+.margin {
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 40px;
+  -webkit-margin-end: 40px;
+}
+
+body {
+  background-color: @bgcolor;
+  font-family: @font-family;
+  font-size: @base-font-size;
+  max-width: @body-width;
+  min-width: @body-min-width;
+  margin: 0 auto;
+  color: @font-color;
+
+  h1 {
+    font-size: @h1-font-size;
+    // border-bottom: 1px solid @border-color;
+    // border-top: 1px solid @border-color;
+    padding: 1em 0;
+    margin: 4px 0 0;
+  }
+
+  span.user {
+    color: @anchor-color;
+  }
+
+  span.navigate {
+    color: @anchor-color;
+  }
+
+  p.login {
+    margin-top: 0;
+  }
+
+  a, a:visited {
+    color: @anchor-color;
+  }
+
+  dl {
+    dt {
+      border-top: 1px solid @border-color;
+      margin-top: 1em;
+      padding-top: 0.5em;
+    }
+    dd.domain {
+      font-size: 16px;
+      margin-top: 0.3em;
+      a {
+        color: @subfont-color;
+        text-decoration: none;
+      }
+    }
+  }
+
+  blockquote {
+    // border: 1px solid @border-color;
+    line-height: 1.45em;
+    position: relative;
+    margin: 1.5em 4em;
+    display: block;
+    .margin;
+    
+    ::before {
+      left: -.5em;
+      position: absolute;
+      top: .25em;
+      font-family: @font-family-quote;
+      content: '\201C';
+      font-size: 4em;
+      opacity: .2;
+    }
+  }
+}
+
