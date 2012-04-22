@@ -1,4 +1,4 @@
-Metoer.js のサンプル (Social Bookmark)
+Meteor.js のサンプル (Social Bookmark)
 ===============
 
 Meteor.js (http://www.meteor.com/) 0.3.3 で作ったサンプル実装です。
